@@ -32,9 +32,9 @@ router.post("/notes", (req, res) => {
 });
 
 router.delete("/notes/:id", (req, res) => {
-  let noteId = req.params.id.toString();
+  let noteId = req.params.id;
   let data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-  const newData = data.filter((note) => note.id.toString() !== noteId);
+  const newData = data.filter((note) => note.id !== noteId);
   fs.writeFileSync("./db/db.json", JSON.stringify(newData));
   res.json(newData);
 });
