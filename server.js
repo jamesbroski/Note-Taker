@@ -4,8 +4,6 @@ const fs = require("fs");
 const { Console } = require("console");
 const api = require("./routes/apiRoutes");
 
-// const uuid = require("./helpers/uuid");
-
 const PORT = process.env.PORT || 3001;
 
 const app = express();

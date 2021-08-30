@@ -1,5 +1,6 @@
 const express = require("express");
 const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
+const uuid = require("../helpers/uuid");
 const router = express.Router();
 
 router.get("/notes", (req, res) => {
@@ -18,6 +19,7 @@ router.post("/notes", (req, res) => {
     const newNote = {
       title,
       text,
+      note_id: uuid(),
     };
 
     readAndAppend(newNote, "./db/db.json");
